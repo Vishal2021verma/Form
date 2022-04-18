@@ -13,10 +13,10 @@
     <style>
         .from-div{
     width: 70%;
-    background-color: #f2f2f2;
+    background-color: #e8e8e8;
     padding: 15px;
     margin: 30px auto auto 30px; 
-    border: 1px solid lightgrey;
+    border: 1px solid darkgrey;
     border-radius: 3px;
 }
 .form-label{
@@ -60,33 +60,32 @@
     </nav>
     <h1 style="margin: 30px auto auto 30px;">Admission Form</h1>
     <div class="from-div">
-        <h2>Personal Details</h2>
+        <h3>Personal Details</h3>
 
-        <form class="row g-3 input-group">
-            <div class="col-md-4">
+        <form  action="/" mehod="post" class="row g-3 need-validation">
+            <div class="col-md-6 position-relative">
                 <label for="fname" class="form-label">First name</label>
-                <input type="text" class="form-control" id="fname" name="fname" aria-describedby="inputGroup-sizing-lg">
+                <input type="text" class="form-control" id="validationCustom01" name="fname"  required>
+                <div class="valid-feedback">
+                    Please enter your name
+                </div>
             </div>
-            <div class="col-md-4">
-                <label for="mName" class="form-label">Middle name</label>
-                <input type="text" class="form-control" id="mName" name="mName">
+            <div class="invalid-feedback">
+                Please enter your name
             </div>
-            <div class="col-md-4">
-                <label for="lName" class="form-label">Last name</label>
-                <input type="text" class="form-control" id="lName" name="lName">
-            </div>
-            <div class="col-4">
+          
+            <div class="col-3">
                 <label for="dob" class="form-label">Date of birth</label>
-                <input type="date" class="form-control" id="dob" name="dob" placeholder="Date of birth">
+                <input type="datetime-local" class="form-control" id="dob" name="dob" placeholder="Date of birth" required> 
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <label for="gender" class="form-label">Gender</label>
                 <select id="gender" class="form-select" name="gender">
                     <option selected>Male</option>
                     <option>Female</option>
                 </select>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <label for="category" class="form-label">Category</label>
                 <select id="category" class="form-select" name="category" name="category">
                     <option selected>SC/ST</option>
@@ -100,8 +99,11 @@
             </div>
             <div class="col-md-3">
                 <label for="pNumber" class="form-label">Phone number</label>
-              
-                <input type="text" class="form-control" id="email" name="pNumber">
+                <input type="text" class="form-control" id="pNumber" name="pNumber">
+            </div>
+            <div class="col-md-3">
+                <label for="adharNumber" class="form-label">Aaddhar number</label>
+                <input type="number" class="form-control" id="adharNumber" name="adharNumber">
             </div>
             <div class="col-md-6">
                 <label for="motherName" class="form-label">Mother's name</label>
@@ -111,12 +113,86 @@
                 <label for="fatherName" class="form-label">Father's name</label>
                 <input type="text" class="form-control" id="fatherName" name="fatherName">
             </div>
-        </form>
-    </div>
-    <div class="from-div">
-        <h2>Address</h2>
-    </div>
+            
+        <h4>Address</h4>
+        <div class="col-md-12">
+            <label for="houseName" class="form-label">Enter Your Permanent Address</label>
+            <input type="text" class="form-control" id="houseName" name="houseName">
+        </div>
+     
+        <div class="col-md-4">
+            <label for="city" class="form-label">City</label>
+            <input type="text" class="form-control" id="city" name="city">
+        </div>
+        <div class="col-md-4">
+            <label for="state" class="form-label">State</label>
+            <input type="text" class="form-control" id="state" name="state">
+        </div>
+        <div class="col-md-4">
+            <label for="pinCode" class="form-label">Pincode</label>
+            <input type="number" class="form-control" id="pincode" name="pincode">
+        </div>
+        <h4>Qualification Details</h4>
+        <h6>10th Class Details</h6>
+        <div class="col-md-2">
+            <label for="tenboard" class="form-label">Select 10th Exam Board</label>
+            <select id="tenboard" class="form-select" name="tenboard" >
+                <option selected>CBSE</option>
+                <option>UP</option>
+                <option>BSEB</option>
+                <option>ICSE</option>
 
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="tenRoll" class="form-label">10th Roll Number</label>
+            <input type="number" class="form-control" id="tenRoll" name="tenRoll">
+        </div>
+        <div class="col-md-3">
+            <label for="tenMarks" class="form-label">10th Total Marks Obtained</label>
+            <input type="number" class="form-control" id="tenMarks" name="tenMarks">
+        </div>
+        <div class="col-md-3">
+            <label for="tenYear" class="form-label">10th Passing Year</label>
+            <input type="number" class="form-control" id="tenYear" name="tenYear">
+        </div>
+        <h6>12th Class Details</h6>
+        <div class="col-md-4">
+            <label for="tewboard" class="form-label">Select 12th Exam Board</label>
+            <select id="tewboard" class="form-select" name="tewboard" >
+                <option selected>CBSE</option>
+                <option>UP</option>
+                <option>BSEB</option>
+                <option>ICSE</option>
+
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="tewRoll" class="form-label">Enter 12th Roll Number</label>
+            <input type="number" class="form-control" id="tewRoll" name="tewRoll">
+        </div>
+        <div class="col-md-4">
+            <label for="tewMarks" class="form-label">Enter 12th Total Marks Obtained</label>
+            <input type="number" class="form-control" id="tewMarks" name="tewMarks">
+        </div>
+        <div class="col-md-8">
+            <label for="tewMarks" class="form-label">Enter 12th School Name </label>
+            <input type="text" class="form-control" id="tewMarks" name="tewMarks">
+        </div>
+        <div class="col-md-3">
+            <label for="tenYear" class="form-label">10th Passing Year</label>
+            <input type="number" class="form-control" id="tenYear" name="tenYear">
+        </div>
+        <p>before submitting the </p>
+
+
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-success btn-lg">Submit Form</button>
+        </div>
+    </form>
+    
+    </div>
+    <br><br><br>
 </body>
 
 </html>
