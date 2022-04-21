@@ -25,13 +25,16 @@
         border-radius: 3px;
       }
       .form-label {
-        font-size: 12px;
+        font-size: 14px;
       }
       .form-control {
         font-size: 18px;
       }
       .form-select {
         font-size: 18px;
+      }
+      p{
+        font-size: 12px;
       }
     </style>
     <title>Form</title>
@@ -74,7 +77,12 @@
     <div class="from-div">
       <h3>Personal Details</h3>
 
-      <form action="/" class="row g-4 needs-validation" novalidate>
+      <form
+        action="/"
+        method="post"
+        class="row g-4 needs-validation"
+        novalidate
+      >
         <div class="col-md-6">
           <label for="fname" class="form-label">Name</label>
           <input
@@ -134,19 +142,19 @@
         </div>
         <div class="col-md-3">
           <label for="pNumber" class="form-label">Phone number</label>
-          <input type="text" class="form-control" id="pNumber" name="pNumber" />
+          <input type="text" maxlength="10"  class="form-control" id="pNumber" name="pNumber" />
         </div>
         <div class="col-md-3">
           <label for="adharNumber" class="form-label">Aaddhar number</label>
           <input
-            type="number"
+            type="text"
             class="form-control"
             id="adharNumber"
             name="adharNumber"
+            maxlength="12"
             required
           />
           <div class="invalid-feedback">Enter Aaddhar Number</div>
-
         </div>
         <div class="col-md-6">
           <label for="motherName" class="form-label">Mother's name</label>
@@ -191,7 +199,8 @@
         <div class="col-md-4">
           <label for="pinCode" class="form-label">Pincode</label>
           <input
-            type="number"
+            type="text"
+            maxlength="6"
             class="form-control"
             id="pincode"
             name="pincode"
@@ -201,9 +210,7 @@
         <h4>Qualification Details</h4>
         <h6>10th Class Details</h6>
         <div class="col-md-2">
-          <label for="tenboard" class="form-label"
-            >Select 10th Board</label
-          >
+          <label for="tenboard" class="form-label">Select 10th Board</label>
           <select id="tenboard" class="form-select" name="tenboard">
             <option selected>CBSE</option>
             <option>UP</option>
@@ -226,7 +233,8 @@
             >10th Total Marks Obtained</label
           >
           <input
-            type="number"
+            type="text"
+            maxlength="3"
             class="form-control"
             id="tenMarks"
             name="tenMarks"
@@ -236,7 +244,8 @@
         <div class="col-md-3">
           <label for="tenYear" class="form-label">10th Passing Year</label>
           <input
-            type="number"
+            type="text"
+            maxlength="4"
             class="form-control"
             id="tenYear"
             name="tenYear"
@@ -270,7 +279,8 @@
             >Enter 12th Total Marks Obtained</label
           >
           <input
-            type="number"
+            type="text"
+            maxlength="3"
             class="form-control"
             id="tewMarks"
             name="tewMarks"
@@ -290,16 +300,17 @@
           />
         </div>
         <div class="col-md-3">
-          <label for="tenYear" class="form-label">10th Passing Year</label>
+          <label for="tewYear" class="form-label">12th Passing Year</label>
           <input
-            type="number"
+            type="text"
+            maxlength="4"
             class="form-control"
             id="tewYear"
             name="tewYear"
             required
           />
         </div>
-        <p>before submitting the</p>
+        <p>Before submitting the form Please make sure input fields are fill correctly</p>
 
         <div class="col-md-3">
           <button type="submit" class="btn btn-success btn-lg">
@@ -308,7 +319,6 @@
         </div>
       </form>
     </div>
-
 
     <script>
       (function () {
