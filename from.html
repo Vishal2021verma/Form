@@ -33,7 +33,7 @@
       .form-select {
         font-size: 18px;
       }
-      p{
+      p {
         font-size: 12px;
       }
     </style>
@@ -77,22 +77,20 @@
     <div class="from-div">
       <h3>Personal Details</h3>
 
-      <form
-        action="/"
-        method="post"
-        class="row g-4 needs-validation"
-        novalidate
-      >
+      <form action="/" method="post" class="row g-4 needs-validation">
         <div class="col-md-6">
           <label for="fname" class="form-label">Name</label>
           <input
             type="text"
             class="form-control"
-            id="validationCustom01"
+            id="fname"
             name="fname"
+            onkeypress="return /[0-9a-zA-Z]/i.test(event.key)"
+            onchange="namevaidate('fname');"
+            maxlength="60"
             required
           />
-          <div class="invalid-feedback">Please enter your name</div>
+          <div id="fname-invalid"></div>
         </div>
 
         <div class="col-3">
@@ -142,7 +140,14 @@
         </div>
         <div class="col-md-3">
           <label for="pNumber" class="form-label">Phone number</label>
-          <input type="text" maxlength="10"  class="form-control" id="pNumber" name="pNumber" />
+          <input
+            type="text"
+            maxlength="10"
+            onkeypress="return /[0-9]/i.test(event.key)"
+            class="form-control"
+            id="pNumber"
+            name="pNumber"
+          />
         </div>
         <div class="col-md-3">
           <label for="adharNumber" class="form-label">Aaddhar number</label>
@@ -151,6 +156,8 @@
             class="form-control"
             id="adharNumber"
             name="adharNumber"
+            onkeypress="return /[0-9]/i.test(event.key)"
+            minlength="12"
             maxlength="12"
             required
           />
@@ -163,6 +170,8 @@
             class="form-control"
             id="motherName"
             name="motherName"
+            onkeypress="return /[0-9a-zA-Z]/i.test(event.key)"
+            onchange="namevaidate('motherName');"
           />
         </div>
         <div class="col-md-6">
@@ -172,6 +181,8 @@
             class="form-control"
             id="fatherName"
             name="fatherName"
+            onkeypress="return /[0-9a-zA-Z]/i.test(event.key)"
+            onchange="namevaidate('fatherName');"
           />
         </div>
 
@@ -204,6 +215,8 @@
             class="form-control"
             id="pincode"
             name="pincode"
+            onkeypress="return /[0-9]/i.test(event.key)"
+            
             required
           />
         </div>
@@ -221,10 +234,12 @@
         <div class="col-md-4">
           <label for="tenRoll" class="form-label">10th Roll Number</label>
           <input
-            type="number"
+            type="text"
             class="form-control"
             id="tenRoll"
             name="tenRoll"
+            onkeypress="return /[0-9]/i.test(event.key)"
+            maxlength="8"
             required
           />
         </div>
@@ -296,6 +311,9 @@
             class="form-control"
             id="tewSName"
             name="tewSName"
+            onkeypress="return /[0-9a-zA-Z]/i.test(event.key)"
+            onchange="namevaidate('tewSName');"
+            maxlength="60"
             required
           />
         </div>
@@ -310,7 +328,10 @@
             required
           />
         </div>
-        <p>Before submitting the form Please make sure input fields are fill correctly</p>
+        <p>
+          Before submitting the form Please make sure input fields are fill
+          correctly
+        </p>
 
         <div class="col-md-3">
           <button type="submit" class="btn btn-success btn-lg">
@@ -320,29 +341,6 @@
       </form>
     </div>
 
-    <script>
-      (function () {
-        "use strict";
-
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.querySelectorAll(".needs-validation");
-
-        // Loop over them and prevent submission
-        Array.prototype.slice.call(forms).forEach(function (form) {
-          form.addEventListener(
-            "submit",
-            function (event) {
-              if (!form.checkValidity()) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-
-              form.classList.add("was-validated");
-            },
-            false
-          );
-        });
-      })();
-    </script>
+    <script src="./validate.js" ></script>
   </body>
 </html>
