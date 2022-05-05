@@ -36,6 +36,11 @@
       p {
         font-size: 12px;
       }
+      .invalid{
+        color: red;
+        font-size:smaller;
+        font-weight: bolder;
+      }
     </style>
     <title>Form</title>
   </head>
@@ -77,7 +82,7 @@
     <div class="from-div">
       <h3>Personal Details</h3>
 
-      <form action="/" method="post" class="row g-4 needs-validation">
+      <form action="" method="post" class="row g-4 needs-validation">
         <div class="col-md-6">
           <label for="fname" class="form-label">Name</label>
           <input
@@ -85,12 +90,12 @@
             class="form-control"
             id="fname"
             name="fname"
-            onkeypress="return /[0-9a-zA-Z]/i.test(event.key)"
-            onchange="namevaidate('fname');"
+            onkeypress="/[0-9a-zA-Z]/i.test(event.key)"
+            onchange="namevaidate('fname','fname-invalid');"
             maxlength="60"
             required
           />
-          <div id="fname-invalid"></div>
+          <div id="fname-invalid" class="invalid"></div>
         </div>
 
         <div class="col-3">
@@ -143,11 +148,14 @@
           <input
             type="text"
             maxlength="10"
-            onkeypress="return /[0-9]/i.test(event.key)"
+            onkeypress="/[0-9]/i.test(event.key)"
+            onchange="numberField('pNumber',10,'pnumber-invalid')"
             class="form-control"
             id="pNumber"
+            onchange=""
             name="pNumber"
           />
+          <div id="pnumber-invalid" class="invalid"></div>
         </div>
         <div class="col-md-3">
           <label for="adharNumber" class="form-label">Aaddhar number</label>
@@ -156,12 +164,12 @@
             class="form-control"
             id="adharNumber"
             name="adharNumber"
-            onkeypress="return /[0-9]/i.test(event.key)"
-            minlength="12"
+            onkeypress="/[0-9]/i.test(event.key)"
+            onchange="numberField('adharNumber',10,'adharNumber-invalid')"
             maxlength="12"
             required
           />
-          <div class="invalid-feedback">Enter Aaddhar Number</div>
+          <div id="adharNumber-invalid" class="invalid"></div>
         </div>
         <div class="col-md-6">
           <label for="motherName" class="form-label">Mother's name</label>
@@ -170,9 +178,10 @@
             class="form-control"
             id="motherName"
             name="motherName"
-            onkeypress="return /[0-9a-zA-Z]/i.test(event.key)"
-            onchange="namevaidate('motherName');"
+            onkeypress="/[0-9a-zA-Z]/i.test(event.key)"
+            onchange="namevaidate('motherName','mname-invalid');"
           />
+          <div id="mname-invalid" class="invalid"></div>
         </div>
         <div class="col-md-6">
           <label for="fatherName" class="form-label">Father's name</label>
@@ -181,9 +190,10 @@
             class="form-control"
             id="fatherName"
             name="fatherName"
-            onkeypress="return /[0-9a-zA-Z]/i.test(event.key)"
-            onchange="namevaidate('fatherName');"
+            onkeypress="/[0-9a-zA-Z]/i.test(event.key)"
+            onchange="namevaidate('fatherName','fatherName-invalid');"
           />
+          <div id="fatherName-invalid" class="invalid"></div>
         </div>
 
         <h4>Address</h4>
@@ -215,119 +225,13 @@
             class="form-control"
             id="pincode"
             name="pincode"
-            onkeypress="return /[0-9]/i.test(event.key)"
-            
+            onkeypress="/[0-9]/i.test(event.key)"
+            onchange="numberField('pincode',6 ,'pincode-invalid');"
             required
           />
+          <div id="pincode-invalid" class="invalid"></div>
         </div>
-        <h4>Qualification Details</h4>
-        <h6>10th Class Details</h6>
-        <div class="col-md-2">
-          <label for="tenboard" class="form-label">Select 10th Board</label>
-          <select id="tenboard" class="form-select" name="tenboard">
-            <option selected>CBSE</option>
-            <option>UP</option>
-            <option>BSEB</option>
-            <option>ICSE</option>
-          </select>
-        </div>
-        <div class="col-md-4">
-          <label for="tenRoll" class="form-label">10th Roll Number</label>
-          <input
-            type="text"
-            class="form-control"
-            id="tenRoll"
-            name="tenRoll"
-            onkeypress="return /[0-9]/i.test(event.key)"
-            maxlength="8"
-            required
-          />
-        </div>
-        <div class="col-md-3">
-          <label for="tenMarks" class="form-label"
-            >10th Total Marks Obtained</label
-          >
-          <input
-            type="text"
-            maxlength="3"
-            class="form-control"
-            id="tenMarks"
-            name="tenMarks"
-            required
-          />
-        </div>
-        <div class="col-md-3">
-          <label for="tenYear" class="form-label">10th Passing Year</label>
-          <input
-            type="text"
-            maxlength="4"
-            class="form-control"
-            id="tenYear"
-            name="tenYear"
-            required
-          />
-        </div>
-        <h6>12th Class Details</h6>
-        <div class="col-md-4">
-          <label for="tewboard" class="form-label"
-            >Select 12th Exam Board</label
-          >
-          <select id="tewboard" class="form-select" name="tewboard">
-            <option selected>CBSE</option>
-            <option>UP</option>
-            <option>BSEB</option>
-            <option>ICSE</option>
-          </select>
-        </div>
-        <div class="col-md-4">
-          <label for="tewRoll" class="form-label">Enter 12th Roll Number</label>
-          <input
-            type="number"
-            class="form-control"
-            id="tewRoll"
-            name="tewRoll"
-            required
-          />
-        </div>
-        <div class="col-md-4">
-          <label for="tewMarks" class="form-label"
-            >Enter 12th Total Marks Obtained</label
-          >
-          <input
-            type="text"
-            maxlength="3"
-            class="form-control"
-            id="tewMarks"
-            name="tewMarks"
-            required
-          />
-        </div>
-        <div class="col-md-8">
-          <label for="tewMarks" class="form-label"
-            >Enter 12th School Name
-          </label>
-          <input
-            type="text"
-            class="form-control"
-            id="tewSName"
-            name="tewSName"
-            onkeypress="return /[0-9a-zA-Z]/i.test(event.key)"
-            onchange="namevaidate('tewSName');"
-            maxlength="60"
-            required
-          />
-        </div>
-        <div class="col-md-3">
-          <label for="tewYear" class="form-label">12th Passing Year</label>
-          <input
-            type="text"
-            maxlength="4"
-            class="form-control"
-            id="tewYear"
-            name="tewYear"
-            required
-          />
-        </div>
+
         <p>
           Before submitting the form Please make sure input fields are fill
           correctly
